@@ -14,7 +14,7 @@ const Card = ({scop,basket,setBasket}) => {
     <div
     style={{width:"150px"}}
     className='d-flex flex-column align-items-center'>
-        <img className='img-fluid' src={scop.imagePath} alt="type" />
+        <img style={{height:'200px'}} className='img-fluid rounded' src={scop.imagePath} alt="type" />
         <label htmlFor="">{scop.name}</label>
         <div className='d-flex align-items-center gap-2 mt-2'>
             <button
