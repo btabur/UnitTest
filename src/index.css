@@ -21,3 +21,20 @@ code {
   position: absolute;
   top: -50px;
 }
+.top-card {
+  width: 150px;
+  text-align: center;
+  border: 1px solid rgb(190, 184, 173);
+}
+.top-card label {cursor: pointer;}
+.top-card img {
+  height: 100px;
+}
+/* İçerisinde cheked olan olan card ı seçer */
+.top-card:has(input:checked) {
+  box-shadow: 0 0 15px white;
+
+}
+.top-card input {
+  display: none;
+}

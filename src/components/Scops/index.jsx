@@ -15,7 +15,7 @@ const Scops = () => {
     <div className='container'>
         <h1>Dondurma Çeşitleri</h1>
         <p>Tanesi 20 &#8378;</p>
-        <h2 data-testId="total">Çeşitler Ücreti:{basket.length*20} &#8378;</h2>
+        <h2 data-testid="total">Çeşitler Ücreti:{basket.length*20} &#8378;</h2>
 
         <div className='row gap-5 justify-content-between '>
             {scopsData?.map((scop,index)=>(

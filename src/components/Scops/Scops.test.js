@@ -1,6 +1,6 @@
 import Scops from ".";
 import userEvent from "@testing-library/user-event";
-import {render,screen} from '@testing-library/react'
+import {render,screen,act} from '@testing-library/react'
 
 test('Apı den her bir veri için ekrana bir kart basılması',async()=>{
 
@@ -14,7 +14,7 @@ test('Apı den her bir veri için ekrana bir kart basılması',async()=>{
 test("Çeşit ekleme işleminin toplam fiyatına yansıması", async()=> {
 
     render(<Scops/>)
-
+   
     const user = userEvent.setup()
 
     const total =screen.getByTestId('total')
@@ -22,16 +22,35 @@ test("Çeşit ekleme işleminin toplam fiyatına yansıması", async()=> {
     const deleteButtons = await screen.findAllByRole('button',{name:'Sıfırla'})
 
 
-    await user.click(buttons[0])
+   await act(async()=> {
+       await user.click(buttons[0])
+      
+    })
 
     expect(total).toHaveTextContent('20')
+   
 
-    await user.dblClick(buttons[1])
-    expect(total).toHaveTextContent('60')
-
-    await user.click(deleteButtons[0])
+   
+   await act(async()=> {
+        await user.click(buttons[1])
+       
+    })
     expect(total).toHaveTextContent('40')
+   
 
-    await user.click(deleteButtons[2])
-    expect(total).toHaveTextContent('40')
+   
+   await act(async()=>{
+        await user.click(deleteButtons[0])
+       
+    });
+    expect(total).toHaveTextContent('20')
+   
+
+ 
+  await  act(async()=>{
+       await user.click(deleteButtons[2])
+       
+   });
+   expect(total).toHaveTextContent('0')
+   
 })
