@@ -1,8 +1,7 @@
 
-import { render,screen,act} from "@testing-library/react"
+import { render,screen} from "@testing-library/react"
 import Toppings from "."
 import userEvent from "@testing-library/user-event"
-import { getByRole } from "@testing-library/dom"
 
 
 test("Veri api den geldikten sonra cardlar ekrana basılır", async ()=> {
